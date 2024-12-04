@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>تسجيل الدخول</title>
+<style>
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #fff;
+    margin: 0;
+  }
+  .login-container {
+    width: 300px;
+    height: 300px;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.1);
+  }
+  .login-container input,
+  .login-container button {
+    width: 90%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #87CEEB;
+    border-radius: 15px;
+    outline: none;
+  }
+  button {
+    background-color: #87CEEB;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    transition: all 0.5s;
+    background: radial-gradient(circle, #fff, #87CEEB);
+    opacity: 0;
+  }
+  button:focus::after, button:active::after {
+    top: 0;
+    left: 0;
+    opacity: 1;
+    transition: 0;
+  }
+  .logo {
+    width: 20%;
+    margin-bottom: 10px;
+  }
+  .hide-show {
+    cursor: pointer;
+    color: #87CEEB;
+    text-align: right;
+    font-size: 0.8rem;
+  }
+  .invisible {
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="login-container">
+  
+  <img src="rocket.gif" alt="Logo" class="logo invisible"> <!-- Replace with your actual logo URL -->
+  
+  <div class="input-wrapper">
+    <input type="text" id="accountID" placeholder="ID Account" minlength="8" required>
+  </div>
+  
+  <div class="input-wrapper">
+    <input type="text" id="enterKey" placeholder="Enter Key" required>
+    <span class="hide-show" onclick="toggleVisibility()">اظهر/اخفي</span>
+  </div>
+  
+  <button onclick="login()">تسجيل الدخول</button>
+  <button onclick="window.open('https://t.me/earning_1xbet');" class="btn-telegram">قناتنا على Telegram</button>
+  
+</div>
+
+<script>
+  function toggleVisibility() {
+    let enterKeyInput = document.getElementById('enterKey');
+    if (enterKeyInput.type === 'password') {
+      enterKeyInput.type = 'text';
+    } else {
+      enterKeyInput.type = 'password';
+    }
+    let logoImage = document.querySelector('.logo');
+    logoImage.classList.toggle('invisible');
+  }
+
+  function login() {
+    let accountID = document.getElementById('accountID').value;
+    let enterKey = document.getElementById('enterKey').value;
+
+    if(navigator.onLine) {
+      if (accountID.length >= 8 && enterKey === 'HikalXbet') {
+        window.location.href = 'profile.html';
+      } else {
+        alert('يرجى التأكد من إدخال البيانات بشكل صحيح.');
+      }
+    } else {
+      window.location.href = 'error.html';
+    }
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>HIKAL CRASH</title>
+<style>
+  body {
+    display: flex;
+    align-items: Center ;
+    justify-content: higher ;
+    flex-direction: column;
+    background-color: black; /* قد يكون الأسود الفاتح هو رمز لون غامق، هنا استخدمت #0000ff */
+    height: 100vh;
+    margin: 0;
+  }
+  .logo-image-container {
+    margin-bottom: 20px;
+  }
+  #logo {
+    font-size: 24px;
+    color: white;
+  }
+  #created {
+    font-size: 15px;
+    color: white;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+  }
+.number-container {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+    border: 10px solid transparent;
+    background-image: linear-gradient(black, black), linear-gradient(90deg, #ffa500, #FF008F);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow: 0 0 10px #ffa500, 0 0 20px #ffa500, 0 0 30px #ffa500, 0 0 40px #ff00ff, 0 0 70px #ff00ff, 0 0 80px #ff00ff;
+    
+    /* تأثير الحركة السلس للدوران */
+    animation: spin 4s ease-in-out infinite;
+}
+
+/* تأثير الدوران حول النفس */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes spin {
+    100% {
+        background-image: linear-gradient(black, black), linear-gradient(0deg, #ffa500, #0000ff);
+    }
+    100% {
+        background-image: linear-gradient(black, black), linear-gradient(360deg, #ffa500, #0000ff);
+    }
+}
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+  .number {
+    font-size: 40px;
+  }
+  .button {
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px; /* حواف دائرية */
+    transition: background-color 0.3s;
+  }
+  .button-go-crash {
+    background-color: #ffa500; /* برتقالي فاقع */
+  }
+  .button-telegram {
+    background-color: #87ceeb; /* أزرق سماوي */
+    position: absolute;
+    bottom: 25px;
+    right: 55px;
+  }
+  #dialogueBox {
+    color: white;
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+
+/* ... إبقاء الأنماط السابقة كما هي ... */
+
+/* تأثير توهج النيون للدائرة */
+.number-container {
+    /* ... خصائص الدائرة الحالية ... */
+    box-shadow: 0 0 10px #ffa500, 
+                0 0 20px #ffa500, 
+                0 0 30px #ffa500, 
+                0 0 40px #ff00ff, 
+                0 0 70px #ff00ff, 
+                0 0 80px #ff00ff, 
+                0 0 10px #ffa500 inset, 
+                0 0 20px #ff00ff inset;
+    animation: neonGlowBorder 7s ease-in-out infinite;
+}
+
+/* تأثير توهج النيون للأزرار */
+.button {
+    /* ... خصائص الأزرار الحالية ... */
+    box-shadow: 0 0 5px #ffa500, 
+                0 0 15px #ffa500, 
+                0 0 30px #ffa500, 
+                0 0 45px #ff00ff;
+    animation: neonGlowButton 7s ease-in-out infinite;
+}
+
+/* مفاتيح الإطار لتوهج النيون للدائرة */
+@keyframes neonGlowBorder {
+  0%, 100% {
+    box-shadow: 0 0 10px #ffa500, 
+                0 0 20px #ffa500, 
+                0 0 30px #ffa500, 
+                0 0 40px #ff00ff, 
+                0 0 70px #ff00ff, 
+                0 0 80px #ff00ff, 
+                0 0 10px #ffa500 inset, 
+                0 0 20px #ff00ff inset;
+  }
+  50% {
+    box-shadow: 0 0 15px #0000ff, 
+                0 0 25px #0000ff, 
+                0 0 35px #0000ff, 
+                0 0 45px #00ffff, 
+                0 0 75px #00ffff, 
+                0 0 85px #00ffff, 
+                0 0 15px #0000ff inset, 
+                0 0 25px #00ffff inset;
+  }
+}
+
+/* مفاتيح الإطار لتوهج النيون للأزرار */
+@keyframes neonGlowButton {
+  0%, 100% {
+    box-shadow: 0 0 5px #ffa500, 
+                0 0 15px #ffa500, 
+                0 0 30px #ffa500, 
+                0 0 45px #ff00ff;
+  }
+  50% {
+    box-shadow: 0 0 5px #0000ff, 
+                0 0 15px #0000ff, 
+                0 0 30px #0000ff, 
+                0 0 45px #00ffff;
+  }
+}
+
+  /* أنماط النافذة المنبثقة والزر */
+  .popup-container {
+    display: none; /* مخفي بشكل افتراضي */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    z-index: 100; /* ليكون فوق كل شيء */
+  }
+
+  .popup-button {
+    position: fixed;
+    top: 22;
+    right: 55;
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    border: none;
+    background-color: transparent;
+    border-radius: 16px;
+    color: white;
+    cursor: pointer;
+  }
+
+  .popup-close-btn {
+    display: block;
+    padding: 10px 20px;
+    margin-top: 15px;
+    border-radius: 20px;
+    text-align: center;
+    background-color: #101F00;
+    color: white;
+    cursor: pointer;
+  }
+
+  /* ... */
+
+</style>
+</head>
+<body>
+
+<div class="logo-image-container">
+  <!-- يمكنك وضع الشعار هنا على شكل صورة -->
+  <img id="logo" src="logoxbethikal.png"  alt="HIKAL CRASH "       width=350px;> 
+</div>
+
+<div class="number-container">
+  <div id="randomNumber" class="number">0.0</div>
+</div>
+
+<button class="button button-go-crash" onclick="checkInternetConnectionAndDisplay()">Go Crash</button>
+<button class="button button-telegram" onclick="window.open('https://t.me/earning_1Xbet')">Telegram</button>
+<div id="dialogueBox">
+  يمكنك معرفة كل تحديثات التطبيق من التليجرام اشترك وتابع كل الاسكريبتات الحصرية واهم توقعات المباريات
+</div>
+<div id="created">
+  Created and programmed by : ☞  Hikal 2024
+</div>
+
+<!-- أزرار وعناصر إضافية -->
+<button class="popup-button" onclick="showPopup()"><img src="About.png" alt="info" class="logo invisible"></button>
+<div class="popup-container" id="popupContainer">
+  <p> التعليمات </p>
+    <p> عندما تقرر بداء اللعب يجب عليك اتباع بعض الخطوات المهمه حتى لا تخسر اموالك </p>
+      <p> يجب عليك مراقبة الطائره حتى تصل الى الرقم 20 او اكثر   ✪</p>
+        <p> بعدها يمكنك الدخول بمبلغ صغير لمره واحده وتقوم بالانسحاب على الرقم الذي سيعطيه لك الاسكريبت ✪ </p>
+          <p> بعد الدخول بمبلغ صغير لأول مره بعد الرقم 20 يمكنك الدخول بأي مبلغ تريد والسحب عند الرقم الناتج ✪</p>
+            <p> ♕♕♛يجب عليك ضرورة الإلتزام بالرقم الناتج ولى تتعدى هذا الرقم ويفضل الانسحاب قبل الرقم المذكور بـ 0.10 حتى تقوم بالانسحاب الاكسر امانا.. وفي حال تخلفت عن الرقم الناتج تحت اي ظرف فأنت هو المسؤول♕♕♛</p>
+              <p> اذا انتهت مدة صلاحية مفتاح التفعيل الخاص بك فيمكنك شراء مفتاح جديد من المطور شخصيا عبر التليجرام ۩♪ </p>
+                <p> By P.R.M  :   Hikal ★ © </p>
+  <button class="popup-close-btn" onclick="hidePopup()">فهمت</button>
+</div>
+
+<!-- ... بقية محتويات الصفحة ... -->
+
+<script>
+  function getRandomNumber() {
+    let random = Math.random();
+    if (random < 0.90) {
+      return (Math.random() * (2.09 - 1.00) + 1.00).toFixed(2);
+    } else if (random < 0.85) {
+      return (Math.random() * (5.10 - 2.00) + 2.00).toFixed(2);
+    } else {
+      return (Math.random() * (6.00 - 4.00) + 4.00).toFixed(2);
+    }
+  }
+
+  function displayRandomNumber() {
+    var numberContainer = document.getElementById('randomNumber');
+    numberContainer.textContent = "Server Connected.. ";
+    
+    setTimeout(function() {
+      numberContainer.textContent = getRandomNumber();
+    }, 2500);
+  }
+
+  function checkInternetConnectionAndDisplay() {
+    if(navigator.onLine) {
+      displayRandomNumber();
+    } else {
+      alert('لا يتوفر اتصال بالإنترنت');
+      setTimeout(function() {
+        document.body.innerHTML = '';
+      }, 5000);
+    }
+  }
+  
+  function showPopup() {
+  document.getElementById("popupContainer").style.display = "block";
+}
+
+function hidePopup() {
+  document.getElementById("popupContainer").style.display = "none";
+}
+
+</script>
+</body>
+</html>

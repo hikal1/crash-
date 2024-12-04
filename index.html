@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة الدخول</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+
+        .splash-container {
+            text-align: center;
+        }
+
+        .splash-logo {
+            width: 100px;
+            height: 100px;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="splash-container">
+        <img src="airplane-propeller.png" alt="Logo" class="splash-logo">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const logo = document.querySelector('.splash-logo');
+            
+            // إظهار اللوجو تدريجياً
+            setTimeout(() => {
+                logo.style.opacity = 1;
+            }, 100);
+
+            // الانتقال إلى صفحة تسجيل الدخول بعد 5 ثواني
+            setTimeout(() => {
+                window.location.href = 'signup.html';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
